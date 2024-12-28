@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+  <script>
+    //Incorrect usage of querySelectorAll with a space
+    let elements = document.querySelectorAll("#myDiv .nonExistentClass");
+
+    if(elements.length == 0){
+        //Throws error because elements is a NodeList and does not have a length property.
+        console.error("Element not found");
+    }
+  </script>
+</body>
+</html>
